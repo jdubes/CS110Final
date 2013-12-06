@@ -18,7 +18,6 @@ import java.util.Collections;
 
 public class WarGameGUI extends JFrame {
         
-         JLabel text2 = new JLabel(); 
 
   public WarGameGUI() {
 
@@ -45,7 +44,7 @@ public class WarGameGUI extends JFrame {
       text.setForeground(Color.ORANGE);
 
       textPanel.add(text);
-      textPanel.add(text2);
+      
 
      JButton flip = new JButton( "Flip" );
      flip.addActionListener(board);
@@ -68,7 +67,7 @@ public class WarGameGUI extends JFrame {
       Font smallFont;    // Font that will be used for the message
      //Ctreation of all the labels and ImageIcons I used in this program
      ImageIcon image,image2,image3,image4,image5,image6,image7;
-     JLabel label,label2,label3,label4,label5,label6,text2;
+     JLabel label,label2,label3,label4,label5,label6;
      JPanel textPanel;
      
  
@@ -155,7 +154,7 @@ public class WarGameGUI extends JFrame {
 
 
               }
-              //For the tie we make ore card obejects and compare them 
+              //For the tie I made more card obejects and compared them using the battle method
            else
                {
                status= "Player 1 tied Player 2. Let the war begin!";
@@ -201,7 +200,8 @@ public class WarGameGUI extends JFrame {
               
                int ult = battle(d,f);
            
-           
+           //This conditional removes the cards won from the losing players hand and
+           //adds them to the opposite player
            if (ult == 0)
               {
               status ="Player 1 won the tie.";
@@ -267,7 +267,9 @@ public class WarGameGUI extends JFrame {
 		  public int battle(Card a, Card b)
         {
         int result = -1;
-		  
+		      //This conditional determine who won andremoves the cards won from the 
+            //losing players hand and adds them to the opposite player
+
         if ( a.getValue() < b.getValue() ) {
           player1.remove(a);
           player2.add(a);
